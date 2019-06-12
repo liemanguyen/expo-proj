@@ -1,25 +1,16 @@
 import React, { Component } from 'react';
-import { AppRegistry, StyleSheet, Text, View } from 'react-native';
+import { AppRegistry, View } from 'react-native';
 
-const styles = StyleSheet.create({
-  bigBlue: {
-    color: 'blue',
-    fontWeight: 'bold',
-    fontSize: 30
-  },
-  red: {
-    color: 'red'
-  }
-});
-
-export default class LotsOfStyles extends Component {
+export default class FlexDimensionsBasics extends Component {
   render() {
     return (
-      <View>
-        <Text style={styles.red}>just red</Text>
-        <Text style={styles.bigBlue}>just bigBlue</Text>
-        <Text style={[styles.bigBlue, styles.red]}>bigBlue, then red</Text>
-        <Text style={[styles.red, styles.bigBlue]}>red, then bigBlue</Text>
+      // Try removing the `flex: 1` on the parent View.
+      // The parent will not have dimensions, so the children can't expand.
+      // What if you add `height: 300` instead of `flex: 1`?
+      <View style={{flex: 1}}>
+        <View style={{flex: 1, backgroundColor: 'powderblue'}} />
+        <View style={{flex: 2, backgroundColor: 'skyblue'}} />
+        <View style={{flex: 3, backgroundColor: 'steelblue'}} />
       </View>
     );
   }
